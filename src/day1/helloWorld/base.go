@@ -20,6 +20,12 @@ func Output() {
 
 	fmt.Println("********************* 混合变量声明: var x, y, s = 23.3, 1, \"seaeaeda\" **********************")
 	paramBlend()
+
+	fmt.Println("********************* 常量声明: const WIDTH int = 10; const LENGTH = 20 **********************")
+	constParam()
+
+	fmt.Println("********************* 算术运算符: ++ -- **********************")
+	operation()
 }
 
 // 多值返回
@@ -55,4 +61,21 @@ func paramBlend() {
 	fmt.Printf("x is of type %T\n", x)
 	fmt.Printf("y is of type %T\n", y)
 	fmt.Printf("s is of type %T\n", s)
+}
+
+//常量声明
+func constParam() {
+	const LENGTH = 10
+	const WIDTH int = 20
+	fmt.Printf("LENGTH const ：%d\n", LENGTH)
+	fmt.Printf("WIDTH const ：%d\n", WIDTH)
+}
+
+//常量声明
+func operation() {
+	var a int = 10
+	a++
+	fmt.Println(a)
+	a--
+	fmt.Println(a)
 }
