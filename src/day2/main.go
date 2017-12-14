@@ -1,13 +1,9 @@
 package main
 
 import (
-	"day1/code"
+	"day2/code"
 )
 
 func main() {
-	code.SayHello()
-
-	code.SayGoodBey()
-
 	code.Output()
 }
