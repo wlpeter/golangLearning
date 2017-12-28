@@ -47,12 +47,14 @@ func stringfunc () {
 
 //数组
 func listFunc () {
-	var list [] string = []string{"s", "q", "f", "y"}
+	var list []string = []string{"s", "q", "f", "y"}
 	var list2 = [3]string{"t", "q", "z"}
+	list21 := [...]string{"tt", "q1", "zz"}
 	list3 := [][]string{ {"t1", "q1", "z1"}, {"t2", "q2", "z2"} }
 
 	loopJob1(list)
 	loopJob2(list2)
+	loopJob2(list21)
 	loopJob3(list3)
 }
 
