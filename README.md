@@ -9,6 +9,7 @@
 #### day1： [进入入口](https://github.com/wlpeter/golangLearning/tree/master/src/day1)
 #### day2： [进入入口](https://github.com/wlpeter/golangLearning/tree/master/src/day2)
 #### day3： [进入入口](https://github.com/wlpeter/golangLearning/tree/master/src/day3)
+#### day4： [进入入口](https://github.com/wlpeter/golangLearning/tree/master/src/day4)
 
 ***
 #### 本人学习参考[Go语言教程](http://www.yiibai.com/go)，部分理论内容来自该网站
