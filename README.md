@@ -11,6 +11,8 @@
 #### day3： [进入入口](https://github.com/wlpeter/golangLearning/tree/master/src/day3)
 #### day4： [进入入口](https://github.com/wlpeter/golangLearning/tree/master/src/day4)
 
+#### day5： [进入入口](https://github.com/wlpeter/golangLearning/tree/master/src/day5)
+
 ***
 #### 本人学习参考[Go语言教程](http://www.yiibai.com/go)，部分理论内容来自该网站
 #### 该日志与本人的学习进度所同步，所有不正确的地方请指出，谢谢
