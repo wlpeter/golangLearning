@@ -200,7 +200,7 @@ func fileWFunc() {
 	_, writerError := fileWriter.WriteString("12312312\nweeewww")
 	if writerError != nil {
 		fmt.Fprintf(os.Stderr, "Write File(outTest2.txt) Error: %s\n", writerError)
-		panic(outputError)
+		panic(writerError)
 		return
 	}
 	//将缓存上的所有数据写入到底层的io.Writer中
@@ -219,4 +219,59 @@ func fileWFunc() {
 	fmt.Fprintf(outputFile3, "Some test data222222222.\n")
 	//outputFile3.Write([]byte("wwwwwwwwwwwww\ntttttttt"))
 	//outputFile3.WriteString("wewww22312312\n1231123123")
+
+	fmt.Println("**************文件write练习*****************")
+	p := new(Page)
+	p.Title = "outTest4"
+	p.Body = []byte("好好学习\n天天向上")
+	p.save();
+
+	p1 := load(p.Title)
+	fmt.Printf("Title : %s\n", p1.Title)
+	fmt.Printf("Body : %s\n", p1.Body)
+}
+
+type Page struct {
+	Title string
+	Body []byte
+}
+
+func (p Page)save() {
+	if p.Title == "" || p.Body == nil || len(p.Body) == 0 {
+		fmt.Fprintf(os.Stderr, "Param Error: %s\n", "参数不能为空")
+	}
+	path := "file/" + p.Title + ".txt"
+	file, fileError := os.OpenFile(path, os.O_WRONLY|os.O_CREATE, 0666)
+	if fileError != nil {
+		fmt.Fprintf(os.Stderr, "Open File(%s) Error: %s\n", path, fileError)
+		panic(fileError)
+		return
+	}
+	defer file.Close()
+	
+	//创建文件写入器
+	fileWriter := bufio.NewWriter(file)
+	_, writerError := fileWriter.Write(p.Body)
+	if writerError != nil {
+		fmt.Fprintf(os.Stderr, "Write File(%s) Error: %s\n", path, writerError)
+		panic(writerError)
+		return
+	}
+	//将缓存上的所有数据写入到底层的io.Writer中
+	fileWriter.Flush()
+}
+
+func load(title string) (p *Page) {
+	if title == "" {
+		fmt.Fprintf(os.Stderr, "Param Error: %s\n", "文件名不能为空")
+	}
+	path := "file/" + title + ".txt"
+	buf, error := ioutil.ReadFile(path)
+	if error != nil {
+		fmt.Fprintf(os.Stderr, "Read File Error: %s\n", error)
+		return
+	}
+	pa := Page{ Title: title, Body: buf }
+	p = &pa
+	return
 }
